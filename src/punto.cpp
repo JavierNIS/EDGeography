@@ -19,19 +19,22 @@ double Punto::GetLongitud() const{
     return longitud;
 }
 
-bool Punto::operator < (const Punto & p )const{
-    //Hay que preguntar como se implementa
-    //voy a hacer una implementación, después me dices que te parece
-    double difflat=0.0, difflong=0.0;
-    //guardamos que tan próximos son los puntos en latitud y longitud
-    difflat = this->GetLatitud() - p.GetLatitud();
-    difflong = this->GetLongitud() - p.GetLongitud();
+void Punto::SetLatitud(double la){
+    latitud=la;
+}
 
-    //si son más próximos en latitud, entonces comparamos por longitudes
-    if(abs(difflong) >= abs(difflat))
-        return difflat < 0;
-    else
-        return difflong < 0;
+void Punto::SetLongitud(double lo){
+    longitud=lo;
+}
+
+bool Punto::operator < (const Punto & p )const{
+    //El criterio que determinamos para que un punto sea menor que otro 
+    //será en función a su distancia respecto al 0 0
+
+    double distancia1 = sqrt( this->latitud * this->latitud + this->longitud * this->longitud );
+    double distancia2= sqrt( p.GetLatitud() * p.GetLatitud() + p.GetLongitud() * p.GetLongitud() );
+
+    return distancia1 < distancia2;
 }
 
 bool Punto::operator == (const Punto & p )const{

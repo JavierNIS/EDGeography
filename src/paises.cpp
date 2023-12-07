@@ -1,8 +1,6 @@
 #include "paises.h"
 
-Paises::Paises(){
-
-}
+Paises::Paises(){}
 
 void Paises::Insertar( const Pais &P){
 	datos.insert( P);
