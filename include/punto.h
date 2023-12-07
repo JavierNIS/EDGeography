@@ -9,7 +9,7 @@
 #define __PUNTO_H
 #include <string>
 #include <iostream>
-#include <iostream>
+#include <cmath>
 /**
   * @brief Clase punto
   * 
