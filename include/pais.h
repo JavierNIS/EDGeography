@@ -9,7 +9,8 @@
 #ifndef __PAIS_H
 #define __PAIS_H
 
-#include "Punto.h"
+#include "punto.h"
+
 
 /**
  * @brief Clase Pais

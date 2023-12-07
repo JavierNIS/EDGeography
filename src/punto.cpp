@@ -1,7 +1,5 @@
 #include "punto.h"
 
-#include <iostream>
-
 using namespace std;
 
 Punto::Punto(){
@@ -23,18 +21,33 @@ double Punto::GetLongitud() const{
 
 bool Punto::operator < (const Punto & p )const{
     //Hay que preguntar como se implementa
+    //voy a hacer una implementación, después me dices que te parece
+    double difflat=0.0, difflong=0.0;
+    //guardamos que tan próximos son los puntos en latitud y longitud
+    difflat = this->GetLatitud() - p.GetLatitud();
+    difflong = this->GetLongitud() - p.GetLongitud();
+
+    //si son más próximos en latitud, entonces comparamos por longitudes
+    if(abs(difflong) >= abs(difflat))
+        return difflat < 0;
+    else
+        return difflong < 0;
 }
 
 bool Punto::operator == (const Punto & p )const{
     return p.GetLatitud() == this->latitud && p.GetLongitud() == this->longitud;
 }
 
-friend istream & operator >> (istream & is, Punto &p){
-    is>> latitud >> longitud;
+istream & operator >> (istream & is, Punto &p){
+    double input;
+    is>> input;
+    p.SetLatitud(input);
+    is >> input;
+    p.SetLongitud(input);
 	return is;
 }
 
-friend ostream & operator << (ostream & os, const Punto &p ){
-    os<<"["<<latitud<<" "<<longitud<<"]";
+ostream & operator << (ostream & os, const Punto &p ){
+    os<<"["<<p.GetLatitud()<<" "<<p.GetLongitud()<<"]";
 	return os;
 }

@@ -6,8 +6,6 @@
   *
   */
 
-#include <fstream>
-#include <string>
 #include "imagenES.h"
 using namespace std;
 

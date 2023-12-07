@@ -7,8 +7,9 @@
 
 #ifndef __IMAGEN_H
 #define __IMAGEN_H
-
-#include <string>
+#include <imagenES.h>
+#include <iostream>
+#include <cassert>
 
 enum Tipo_Pegado {OPACO, BLENDING};
 /**
@@ -36,7 +37,7 @@ unsigned char transparencia;
 
 class Imagen{
  private:
-    Pixel **datos; //donde se almacena la información de la imagen. Otra posible representación
+    Pixel **data; //donde se almacena la información de la imagen. Otra posible representación
     //Pixel*datos
     int nf,nc;
 

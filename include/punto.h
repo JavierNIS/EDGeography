@@ -7,7 +7,9 @@
 
 #ifndef __PUNTO_H
 #define __PUNTO_H
-
+#include <string>
+#include <iostream>
+#include <iostream>
 /**
   * @brief Clase punto
   * 
@@ -102,6 +104,6 @@ class Punto{
      * @return os (Para poder concatenar el operador)
      */ 
     friend ostream & operator << (ostream & os, const Punto &p );
-}
+};
 
 #endif

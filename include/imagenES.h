@@ -8,6 +8,8 @@
 
 #ifndef _IMAGEN_ES_H_
 #define _IMAGEN_ES_H_
+#include <fstream>
+#include <string>
 
 /**
   * @brief Tipo de imagen
