@@ -8,7 +8,7 @@
 #ifndef __PAISES_H
 #define __PAISES_H
 
-#include "Pais.h"
+#include "pais.h"
 #include <set>
 
 using namespace std;
@@ -92,7 +92,7 @@ class Paises{
 	 *
 	 * @return iterador constante que apunta al primer pais del conjunto 
 	 */
-	const_iterator begin()const¡;
+	const_iterator begin()const;
 
 	/**
 	 * @brief Funcion end de la clase paises
