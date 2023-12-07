@@ -66,6 +66,15 @@ class Punto{
     void SetLongitud(double lo);
 
     /**
+     * @brief funcion auxiliar para calcular la distancia entre un punto y otro
+     *
+     * @param p punto con el que calcular la distancia
+     *
+     * @return double con la distancias
+     */
+     double Distancia( const Punto &p) const;
+
+    /**
      * @brief operador "menor que" de la clase punto
      * 
      * @param p punto con el que comparar
