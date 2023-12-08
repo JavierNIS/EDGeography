@@ -46,8 +46,20 @@ bool Ruta::operator==(const Ruta &R)const{
 
 bool operator<(const Ruta &R)const{
     //Seguiremos el criterio de la ruta más corta
+    double r1 = 0.0;
+    double r2 = 0.0;
 
+    for( Ruta::iterator it = this->begin(); it != this->end() - 1; ++it ){
+        Ruta::iterator sig = next(it);
+        r1 += (*it).Distancia(*sig);
+    }
 
+    for( Ruta::iterator it = R.begin(); it != R.end() - 1; ++it ){
+        Ruta::iterator sig = next(it);
+        r2 += (*it).Distancia(*sig);
+    }
+
+    return r1 < r2;
 }
 
 iterator Ruta::begin(){

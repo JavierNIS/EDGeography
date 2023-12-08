@@ -28,7 +28,7 @@ void Punto::SetLongitud(double lo){
 }
 
 double Distancia( const Punto &p ) const{
-    return sqrt( pow(this->latitud + p.GetLatitud() ,2) + pow( this->longitud + p.GetLongitud() ,2) );
+    return sqrt( pow(this->latitud - p.GetLatitud() ,2) + pow( this->longitud - p.GetLongitud() ,2) );
 }
 
 bool Punto::operator < (const Punto & p )const{

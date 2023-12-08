@@ -93,7 +93,7 @@ class Punto{
     bool operator == (const Punto & p ) const;
 
     /**
-     * @brief operador de inserccion de flujo la clase punto
+     * @brief operador de extraccion de flujo la clase punto
      * 
      * Recoge los datos necesarios para construir un objeto de la clase punto
      * @param is Flujo de entrada
@@ -104,7 +104,7 @@ class Punto{
     friend istream & operator >> (istream & is, Punto &p);
 
     /**
-     * @brief operador de extraccion de flujo de la clase punto
+     * @brief operador de inserccion de flujo de la clase punto
      * 
      * Muestra por pantalla el objeto punto
      * @param os Flujo de salida
