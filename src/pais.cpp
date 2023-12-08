@@ -2,10 +2,7 @@
 
 using namespace std;
 
-Pais::Pais(){
-    pais="unknown";
-    bandera="unknown";
-}
+Pais::Pais(){}
 
 Punto Pais::GetPunto() const{
     return p;

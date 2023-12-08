@@ -27,12 +27,16 @@ void Punto::SetLongitud(double lo){
     longitud=lo;
 }
 
+double Distancia( const Punto &p ) const{
+    return sqrt( pow(this->latitud - p.GetLatitud() ,2) + pow( this->longitud - p.GetLongitud() ,2) );
+}
+
 bool Punto::operator < (const Punto & p )const{
     //El criterio que determinamos para que un punto sea menor que otro 
     //será en función a su distancia respecto al 0 0
-
-    double distancia1 = sqrt( this->latitud * this->latitud + this->longitud * this->longitud );
-    double distancia2= sqrt( p.GetLatitud() * p.GetLatitud() + p.GetLongitud() * p.GetLongitud() );
+    Punto p0; //Por defecto tiene latitud y longitud 0
+    double distancia1 = this->Distancia( p0);
+    double distancia2= p.Distancia(p0);
 
     return distancia1 < distancia2;
 }

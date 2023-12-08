@@ -90,7 +90,7 @@ class Pais{
     friend istream & operator>>(istream & is, Pais & P);
 
     /**
-     * @brief operador de extraccion de flujo de la clase pais
+     * @brief operador de inserccion de flujo de la clase pais
      * 
      * Muestra por pantalla el objeto pais
      *
