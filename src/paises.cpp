@@ -10,37 +10,37 @@ void Paises::Borrar( const Pais &P){
 	datos.erase(P);
 }
 
-iterator Paises::begin(){
+Paises::iterator Paises::begin(){
 	iterator it;
 	it.p = datos.begin();
 	return it;
 }  
 
-const_iterator Paises::begin()const{
+Paises::const_iterator Paises::begin()const{
 	const_iterator it;
 	it.p = datos.begin();
 	const_iterator i = it;
 	return i;
 }
-iterator Paises::end(){
+Paises::iterator Paises::end(){
 	iterator it;
 	it.p = datos.end();
 	return it;
 }
-const_iterator Paises::end()const{
+Paises::const_iterator Paises::end()const{
 	iterator it;
 	it.p = datos.end();
 	const_iterator i = it;
 	return i;
 }
-iterator Paises::find(const Pais &p){
+Paises::iterator Paises::find(const Pais &p){
 	iterator it;
 	set<Pais>::iterator i;
 	for (i=datos.begin(); i!=datos.end() && !((*i)==p);++i);
 		it.p=i;
 	return it;
 }
-iterator Paises::find(const Punto &p){
+Paises::iterator Paises::find(const Punto &p){
 	iterator it;
 	set<Pais>::iterator i;
 	for (i=datos.begin(); i!=datos.end() && !((*i).GetPunto() ==p );++i);

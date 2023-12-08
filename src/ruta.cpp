@@ -62,25 +62,25 @@ bool operator<(const Ruta &R)const{
     return r1 < r2;
 }
 
-iterator Ruta::begin(){
+Ruta::iterator Ruta::begin(){
     iterator it;
     it.p = puntos.begin();
     return it;
 }
 
-const_iterator Ruta::begin(){
+Ruta::const_iterator Ruta::begin(){
     const_iterator it;
     it.p = puntos.begin();
     return it;
 }
 
-iterator Ruta::end(){
+Ruta::iterator Ruta::end(){
     iterator it;
     it.p = puntos.end();
     return it;
 }
 
-const_iterator Ruta::end(){
+Ruta::const_iterator Ruta::end(){
     const_iterator it;
     it.p = puntos.end();
     return it;
