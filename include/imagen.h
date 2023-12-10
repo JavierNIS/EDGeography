@@ -37,115 +37,130 @@ unsigned char transparencia;
 
 class Imagen{
  private:
-    Pixel **data; //donde se almacena la información de la imagen. Otra posible representación
-    //Pixel*datos
-    int nf,nc;
+   Pixel **data; //donde se almacena la información de la imagen. Otra posible representación
+   //Pixel*datos
+   int nf,nc;
+   
+   void Asignar( int f, int c, Pixel * buffer=0);
+   /**
+    * @brief Función auxiliar
+    *
+    * Incializa las variables privadas
+    */
+   void Inicializar( int f = 0, int c=0, Pixel * buffer=0);
 
-    /**
-     * @brief 
-     */
-    void Borrar();
+  /**
+   * @brief Funcion auxiliar 
+   *
+   * Copia los datos de una imagen en los datos privados
+   */
+  void Copiar(const Imagen &I);
+  
+  bool Empty() const;
 
-    /**
-     * @brief 
-     */
-    void Copiar(const Imagen &I);
+  /**
+   * @brief Funcion auxiliar
+   *
+   * Borra los datos de la imagen
+   */
+  void Borrar();
+
  public:
     
-    /**
-     * @brief Constructor por defecto de la clase Imagen
-     */
-    Imagen();
+   /**
+    * @brief Constructor por defecto de la clase Imagen
+    */
+   Imagen();
 
-    /**
-     * @brief Constructor por parametros de la clase imagen
-     *
-     * @param f Numero de filas de la imagen
-     * @param c Numero de columnas de la imagen
-     */
-    Imagen (int f,int c); 
+   /**
+    * @brief Constructor por parametros de la clase imagen
+    *
+    * @param f Numero de filas de la imagen
+    * @param c Numero de columnas de la imagen
+    */
+   Imagen (int f,int c); 
 
-    /**
-     * @brief Constructor de copia de la clase imagen
-     *
-     * @param I Imagen a partir de la cual construimos el objeto
-     */
-    Imagen(const Imagen &I);
+   /**
+    * @brief Constructor de copia de la clase imagen
+    *
+    * @param I Imagen a partir de la cual construimos el objeto
+    */
+   Imagen(const Imagen &I);
 
-    /**
-     * @brief Operador de asignación de la clase Imagen
-     */
-    Imagen & operator =(const Imagen & I);
+   /**
+    * @brief Operador de asignación de la clase Imagen
+    */
+   Imagen & operator =(const Imagen & I);
 
-    /**
-     * @brief Destructor de la clase imagen
-     * 
-     */
-    ~Imagen();
+   /**
+    * @brief Destructor de la clase imagen
+    * 
+    */
+   ~Imagen();
     
-    /**
-     * @brief operador () de la clase imagen
-     * 
-     * Devuelve una referencia al pixel de la posicion i, j
-     *
-     * @param i Numero de fila del pixel
-     * @param j Numero de columna del pixel
-     */
-    Pixel & operator()(int i,int j); 
+   /**
+    * @brief operador () de la clase imagen
+    * 
+    * Devuelve una referencia al pixel de la posicion i, j
+    *
+    * @param i Numero de fila del pixel
+    * @param j Numero de columna del pixel
+    */
+   Pixel & operator()(int i,int j); 
 
-    /**
-     * @brief operador () de la clase imagen
-     * 
-     * Devuelve una referencia constante al pixel de la posicion i, j 
-     *
-     * @param i Numero de fila del pixel
-     * @param j Numero de columna del pixel
-     */
-    const Pixel & operator()(int i,int j)const;
+   /**
+    * @brief operador () de la clase imagen
+    * 
+    * Devuelve una referencia constante al pixel de la posicion i, j 
+    *
+    * @param i Numero de fila del pixel
+    * @param j Numero de columna del pixel
+    */
+   const Pixel & operator()(int i,int j)const;
 
-    /**
-     * @brief Escribe en disco una imagen
-     * 
-     * @param nombre Puntero apuntando a la imagen
-     */    
-    void EscribirImagen(const char * nombre);
+   /**
+    * @brief Escribe en disco una imagen
+    * 
+    * @param nombre Puntero apuntando a la imagen
+    */    
+   void EscribirImagen(const char * nombre);
 
-    /**
-     * @brief Lee de disco una imagen
-     * 
-     * @param nomnre Puntero apuntando a la imagen
-     * @param nombremascara //NO SE QUE ES
-     */
-    void LeerImagen (const char *nombre,const std::string &nombremascara="");
+   /**
+    * @brief Lee de disco una imagen
+    * 
+    * @param nomnre Puntero apuntando a la imagen
+    * @param nombremascara //NO SE QUE ES
+    */
+   void LeerImagen (const char *nombre,const std::string &nombremascara="");
     
-    /**
-     * @brief 
-     */
-    void LimpiarTransp();
+   /**
+    * @brief 
+    */
+   void LimpiarTransp();
 
-    /**
-     * @brief Funcion auxiliar GetFilas de la clase Imagen
-     * 
-     * @return nf Numero de filas de la imagen
-     */
-    int num_filas()const;
+   /**
+    * @brief Funcion auxiliar GetFilas de la clase Imagen
+    * 
+    * @return nf Numero de filas de la imagen
+    */
+   int num_filas()const;
 
-    /**
-     * @brief Funcion auxiliar GetCols de la clase Imagen
-     * 
-     * @return nc Numero de columnas de la imagen
-     */
-    int num_cols()const;
+   /**
+    * @brief Funcion auxiliar GetCols de la clase Imagen
+    * 
+    * @return nc Numero de columnas de la imagen
+    */
+   int num_cols()const;
 
-    /**
-     * @brief 
-     */
-    void PutImagen(int posi,int posj, const Imagen &I,Tipo_Pegado tippegado=OPACO);
+   /**
+    * @brief 
+    */
+   void PutImagen(int posi,int posj, const Imagen &I,Tipo_Pegado tippegado=OPACO);
     
-    /**
-     * @brief 
-     */
-    Imagen ExtraeImagen(int posi,int posj,int dimi,int dimj);
+   /**
+    * @brief 
+    */
+   Imagen ExtraeImagen(int posi,int posj,int dimi,int dimj);
 };
 
 #endif

@@ -3,47 +3,77 @@
 using namespace std;
 
 //Private:
-void Imagen::Borrar(){
-    for(int i = 0; i < nf; i++)
-        delete [] data[i];
-    delete[] data;
+
+void Imagen::Asignar( int f, int c, Pixel * buffer){
+    nf = f;
+    nc = c;
+
+    data = new Pixel * [nf];
+
+    if (buffer != 0){
+        data[0] = buffer;
+    }else{
+        data[0] = new Pixel [ nf * nc];
+    }
+    for(int i=1; i< nf; i++){
+        data[i] = data [i-1] + nc;
+    }
+}
+
+//---------------------------------------
+
+void Imagen::Inicializar( int f, int c, Pixel * buffer){
+    if ((f == 0) || (c == 0)){
+        nf = nc = 0;
+        data = 0;
+    }
+    else Asignar(f, c, buffer);
 }
 
 //---------------------------------------
 
 void Imagen::Copiar(const Imagen & I){
-    nf = I.num_filas();
-    nc = I.num_cols();
-    data = new Pixel*[nf];
-    for(int i = 0; i < nf; i++){
-        data[i] = new Pixel [nc];
-        for(int j= 0; j<nc; j++){
-            data[i][j]=I(i, j);
+    Inicializar(I.nf , I.nc);
+
+    for(int i=0; i < nf; i++){
+        for(int j=0; j < nc; j++){
+            data[i][j] = I(i, j);
         }
+    }
+    
+}
+
+//---------------------------------------
+
+bool Imagen::Empty() const{
+    return (nf == 0) || (nc == 0);
+}
+
+//---------------------------------------
+
+void Imagen::Borrar(){
+    if(!Empty() ){
+        delete [] data[0];
+        delete [] data;
     }
 }
 
 //Public::
 
 Imagen::Imagen (){
-    data = nullptr;
-    nf = 0;
-    nc = nf;
+    Inicializar();
 }
 
 //---------------------------------------
 
 Imagen::Imagen(int f,int c){
-    nf = f;
-    nc = c;
-    data = new Pixel*[nf];
-    for (int i=0;i<nf;i++){
-        data[i]=new Pixel[nc];
+    Inicializar(f, c);
+    for (int i=0;i<nf;i++){ 
         for (int j=0;j<nc;j++){
-	    data[i][j].r=255;
-	    data[i][j].g=255;
-	    data[i][j].b=255;
-	    data[i][j].transparencia=255;
+            data[i][j].r=255;
+            data[i][j].g=255;
+            data[i][j].b=255;
+            data[i][j].transparencia=255;
         }
     }  
 }
@@ -51,13 +81,14 @@ Imagen::Imagen(int f,int c){
 //---------------------------------------
 
 Imagen::Imagen(const Imagen &I){
+    assert (this != &I);
     Copiar(I);
 }
 
 //---------------------------------------
 
 Imagen & Imagen::operator =(const Imagen & I){
-    if(this == &I){
+    if(this != &I){
         Borrar();
         Copiar(I);
     }
