@@ -1,5 +1,5 @@
 /**
- * @file Ruta.h
+ * @file ruta.h
  * @brief Fichero de cabecera de la clase ruta
  *
  * Permite el almacenamiento y la gestión de objetos de tipo ruta

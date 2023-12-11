@@ -1,5 +1,5 @@
 /**
- * @file Paises.h
+ * @file paises.h
  * @brief Fichero de cabecera de la clase Paises
  *
  * Permite el almacenamiento y gestion de muchos objetos de tipo Pais
