@@ -129,12 +129,12 @@ class Imagen{
     * @brief Lee de disco una imagen
     * 
     * @param nomnre Puntero apuntando a la imagen
-    * @param nombremascara //NO SE QUE ES
+    * @param nombremascara Mascara que indica donde se encuentran los objetos de una imagen
     */
    void LeerImagen (const char *nombre,const std::string &nombremascara="");
     
    /**
-    * @brief 
+    * @brief Limpia la transparencia de la imagen
     */
    void LimpiarTransp();
 
@@ -161,6 +161,177 @@ class Imagen{
     * @brief 
     */
    Imagen ExtraeImagen(int posi,int posj,int dimi,int dimj);
+
+   class const_iterator;
+
+	/**
+	 * @brief Clase iterator de la clase Imagen
+	 * 
+	 * @param p Puntero apuntando a un pixel
+	 */
+	class iterator{
+	  private:
+      Pixel * p;
+      Imagen *I;
+	  public:
+		  friend class Imagen;
+		  friend class const_iterator;
+      
+      /**
+       * @brief Constructor de la clase iterador
+       */     
+      iterator(){
+        p = 0;
+        I = 0;
+      }
+
+      /**
+       * @brief Constructor de copia de la clase iterador
+       */
+      iterator(const const_iterator &it ){
+        if ( *this != it ) {
+          p = const_cast <Pixel *> ( it.p ) ;
+          I = const_cast <Imagen *> ( it.I ) ;
+        }
+      }  
+      /**
+       * @brief Destructor de la clase iterador
+       */
+      ~iterator(){
+        p = 0;
+        I = 0;
+      }
+
+      /**
+       * @brief Operador ++ de la clase iterador
+       *
+       * @return Devuelve un iterador apuntando al siguiente elemento
+       */
+      iterator & operator++(){
+        if( p != I->end().p )
+          p + 1;
+
+        return *this;
+      }
+      
+      Pixel & operator *(){
+        return *p;
+      }
+
+      const Pixel & operator*() const{
+        return *p;
+      }
+
+      /**
+       * @brief Operador != de la clase iterador
+       *
+       * @return Devuelve un iterador apuntando al siguiente elemento
+       */
+      bool operator!=(const iterator & it){
+        return  it.p != this->p && it.I != this->I;
+      }
+
+      /**
+       * @brief Operador != de la clase iterador
+       *
+       * @return Devuelve un iterador apuntando al siguiente elemento
+       */
+      bool operator!=(const const_iterator & it){
+        return  it.p != this->p && it.I != this->I;
+      }
+
+	}; 
+
+	/**
+	 * @brief Clase const_iterator de la clase Imagen
+	 * 
+	 * @param p Punto apuntando a un pixel
+	 */
+	class const_iterator{
+	  private:
+		  const Pixel * p;
+      const Imagen * I;
+	  public:
+		  friend class Imagen;
+
+      /**
+       * @brief Constructor de la clase const_iterador
+       */     
+      const_iterator(){
+        p = 0;
+        I = 0;
+      }
+
+      /**
+       * @brief Constructor de copia de la clase const_iterator
+       */
+      const_iterator & operator = (const iterator & it){
+        this->p = it.p;
+        this->I = it.I;
+        return *this;
+      }
+
+      /**
+       * @brief Destructor de la clase const_iterador
+       */ 
+      ~const_iterator(){
+        p =0;
+      }
+
+    /**
+       * @brief Operador != de la clase const_iterador
+       *
+       * @return Devuelve un iterador constante apuntando al siguiente elemento
+       */
+      bool operator!=(const iterator & it){
+        return  it.p != this->p && it.I != this->I;
+      }
+
+      /**
+       * @brief Operador != de la clase connst_iterador
+       *
+       * @return Devuelve un iterador constante apuntando al siguiente elemento
+       */
+      bool operator!=(const const_iterator & it){
+        return  it.p != this->p && it.I != this->I;
+      }
+	};
+
+	/**
+	 * @brief Funcion begin de la clase imagen
+	 *
+	 * Devuelve un iterador que apunta al primer pixel de una imagen
+	 *
+	 * @return iterador apuntando al primer pixel de una imagen
+	 */
+	iterator begin();
+
+	/**
+	 * @brief Funcion begin de la clase paises
+	 *
+	 * Devuelve un iterador constante que apunta al primer pixel de una imagen
+	 *
+	 * @return iterador constante que apunta al primer pixel de una imagen
+	 */
+	const_iterator begin()const;
+
+	/**
+	 * @brief Funcion end de la clase paises
+	 *
+	 * Devuelve un iterador que apunta al último pixel de una imagen
+	 *
+	 * @return iterador apuntandoal último pixel de una imagen
+	 */
+	iterator end();
+
+	/**
+	 * @brief Funcion end de la clase paises
+	 *
+	 * Devuelve un iterador constante que apunta al último pixel de una imagen
+   *
+	 * @return iterador constante que apunta al último pixel de una imagen
+	 */
+	const_iterator end()const;
 };
 
 #endif

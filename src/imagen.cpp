@@ -198,9 +198,11 @@ void Imagen::LeerImagen(const char * nombre,const string &nombremascara){
 //---------------------------------------
 
 void Imagen::LimpiarTransp(){
-    for(int i = 0; i < nf; i++)
-        for(int j = 0; j < nc; j++)
+    for(int i =0; i< nf; i++){
+        for(int j =0; j <nc; j++){
             data[i][j].transparencia = 255;
+        }
+    }
 }
 
 //---------------------------------------

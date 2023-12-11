@@ -7,9 +7,12 @@
 
 #ifndef __PUNTO_H
 #define __PUNTO_H
-#include <string>
+
 #include <iostream>
+#include <string>
 #include <cmath>
+
+using namespace std;
 /**
   * @brief Clase punto
   * 
