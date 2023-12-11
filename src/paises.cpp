@@ -45,16 +45,67 @@ Paises::iterator Paises::find(const Punto &p){
 	return it;
 }
 
+void Paises::iterator::operator++(){
+	++p;
+}
+
+bool Paises::iterator::operator!=(const iterator& i){
+	return i.p != this->p;
+}
+
+const Pais& Paises::iterator::operator*(){
+	return *p;
+}
+
 void Paises::const_iterator::operator++(){
 	++p;
 }
+
 bool Paises::const_iterator::operator!=(const const_iterator& i){
 	return i.p != this->p;
 }
+
 const Pais& Paises::const_iterator::operator*(){
 	return *p;
 }
 
+bool Paises::save(const char* nombre){
+	ofstream fichero(nombre);
+	bool hecho = false;
+
+	if ( !fichero.is_open()){
+		cout<<"No se pudo abrir el archivo"<<endl;
+
+		hecho = false;
+	}else{
+		fichero << "# Latitud\t\tLongitud\t\tPais\t\tBandera";
+		if( fichero << *this )
+			hecho = true;
+		else
+			hecho = false;
+	}
+
+	return hecho;
+	
+}
+
+bool Paises::load(const char* nombre){
+	ifstream fichero(nombre);
+	bool hecho = false;
+
+	if ( !fichero.is_open()){
+		cout<<"No se pudo abrir el archivo"<<endl;
+
+		hecho = false;
+	}else{
+		if( fichero >> (*this) )
+			hecho = true;
+		else
+			hecho = false;
+	}
+
+	return hecho;
+}
 
 istream & operator>>(istream & is, Paises & R){
 	Paises rlocal;

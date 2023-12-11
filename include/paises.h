@@ -8,6 +8,9 @@
 #ifndef __PAISES_H
 #define __PAISES_H
 
+#include <iostream>
+#include <string>
+#include <fstream>
 #include "pais.h"
 #include <set>
 
@@ -61,6 +64,9 @@ class Paises{
 	  public:
 		friend class Paises;
 		friend class const_iterator;
+		void operator++();
+		bool operator!=(const iterator& i);
+		const Pais& operator*();
 	}; 
 
 	/**
@@ -131,6 +137,24 @@ class Paises{
 	 * @param p Punto del pais para buscar 
 	 */
 	iterator find(const Punto &p);
+	
+	/**
+     * @brief Guarda en un archivo de texto los paises almacenados en este objeto
+     * 
+     * @param nombre nombre del archivo en el que escribirán los paises
+     * 
+     * @return true si se ha completado exitosamente, false en cualquier otro caso
+     */
+    bool save(const char* nombre);
+
+    /**
+     * @brief Lee de un archivo de texto los paises almacenados
+     * 
+     * @param nombre nombre del archivo del que se leerán los paises
+     * 
+     * @return true si se ha completado exitosamente, false en cualquier otro caso
+     */
+    bool load(const char* nombre);
 
 	/**
      * @brief operador de extraccion de flujo de la clase paises

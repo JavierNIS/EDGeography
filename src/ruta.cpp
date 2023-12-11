@@ -6,6 +6,10 @@ bool Ruta::iterator::operator!=(const iterator& i){
     return this->p != i.p;
 }
 
+bool Ruta::iterator::operator!=(const const_iterator& i)const{
+    return this->p != i.p;
+}
+
 Punto& Ruta::iterator::operator*(){
     return *p;
 }
@@ -17,16 +21,25 @@ void Ruta::iterator::operator++(){
 bool Ruta::const_iterator::operator!=(const const_iterator& i) const{
     return this->p != i.p;
 }
+
+bool Ruta::const_iterator::operator!=(const iterator& i) const{
+    return this->p != i.p;
+}
+
 const Punto& Ruta::const_iterator::operator*() const{
     return *p;
 }
+
 void Ruta::const_iterator::operator++(){
     ++p;
 }
 
 //------------------Funciones de ruta--------------------
 Ruta::Ruta(){}
-
+Ruta::~Ruta(){
+    puntos.clear();
+    code = "";
+}
 void Ruta::Insertar(const Punto & n){
     Ruta::iterator it = this->begin() ;
     
@@ -117,5 +130,32 @@ Ruta::const_iterator Ruta::end() const{
     const_iterator it;
     it.p = puntos.end();
     return it;
+}
+
+istream & operator >>(istream & is, Ruta &R){
+    string cod;
+    int nPuntos;
+    Punto p;
+
+    is >> cod >> nPuntos; 
+
+    R.SetCode(cod);
+
+    for(int i=0; i< nPuntos; i++){
+        is >> p;
+        R.Insertar(p);
+    }
+    return is;
+}
+
+ostream & operator <<(ostream & os, const Ruta & R){
+    
+    os << R.GetCode();
+
+    Ruta::const_iterator it;
+    for( it=R.begin(); it != R.end(); ++it){
+        os << *it;
+    }
+    return os;
 }
 

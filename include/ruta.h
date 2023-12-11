@@ -34,6 +34,11 @@ class Ruta{
     */
    Ruta();
 
+  /**
+   * @brief Destructor de la clase Ruta
+   */
+   ~Ruta();
+
    /**
     * @brief Función insertar de la clase Ruta
     * 
@@ -92,6 +97,8 @@ class Ruta{
     */
    bool operator<(const Ruta &R)const;
    
+   class const_iterator;
+
    /**
     * @brief Clase iterator de la clase ruta
     * 
@@ -104,6 +111,7 @@ class Ruta{
       friend class Ruta;
       friend class const_iterator;
       bool operator!=(const iterator& i);
+      bool operator!=(const const_iterator& i) const;
       Punto& operator*();
       void operator++();
    };
@@ -119,6 +127,7 @@ class Ruta{
     public: 
       friend class Ruta;
       bool operator!=(const const_iterator& i) const;
+      bool operator!=(const iterator& i) const;
       const Punto& operator*() const;
       void operator++();
    };
