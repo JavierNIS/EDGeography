@@ -68,7 +68,10 @@ bool Ruta::operator==(const Ruta &R)const{
         for(it1 = this->begin(), it2 = R.begin(); it1 != this->end() && iguales; ++it1, ++it2){
             iguales = (*it1) == (*it2);
         }
+    }else{
+        iguales = false;
     }
+    return iguales;
 }
 
 bool Ruta::operator<(const Ruta &R)const{

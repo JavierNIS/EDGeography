@@ -27,7 +27,7 @@ void Punto::SetLongitud(double lo){
     longitud=lo;
 }
 
-double Distancia( const Punto &p ) const{
+double Punto::Distancia( const Punto &p ) const{
     return sqrt( pow(this->latitud - p.GetLatitud() ,2) + pow( this->longitud - p.GetLongitud() ,2) );
 }
 

@@ -87,7 +87,7 @@ Imagen::Imagen(const Imagen &I){
 
 //---------------------------------------
 
-Imagen & Imagen::operator =(const Imagen & I){
+Imagen & Imagen::operator=(const Imagen & I){
     if(this != &I){
         Borrar();
         Copiar(I);

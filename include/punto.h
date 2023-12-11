@@ -38,7 +38,7 @@ class Punto{
      * @param lo Longitud del punto
      * @param d \\\\\\\\\\\\\\
      */
-    Punto( double la, double lo, const string & d );
+    Punto( double la, double lo, const string & d = "" );
 
     /**
      * @brief Función auxiliar para obtener la latitud del punto
