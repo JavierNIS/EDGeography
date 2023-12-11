@@ -73,7 +73,9 @@ class Paises{
 		set<Pais>::const_iterator p;
 	  public:
 		friend class Paises;
-	
+		void operator++();
+		bool operator!=(const const_iterator& i);
+		const Pais& operator*();
 	};
 
 	/**

@@ -6,33 +6,50 @@ void Almacen_Rutas::Insertar(const Ruta& R){
     rutas.insert(pair<string, Ruta>(R.GetCode(), R));
 }
 
-void Borrar(const Ruta& R){
-    rutas.erase(R.GetCode);
+void Almacen_Rutas::Borrar(const Ruta& R){
+    rutas.erase(R.GetCode());
 }
 
-Ruta GetRuta(const string& a){
-    iterator it=rutas.find(a);
-    return *it;
+Ruta Almacen_Rutas::GetRuta(const string& a){
+    return rutas[a];
 }
 
-iterator begin(){
-    iterator it=rutas.begin();
+Almacen_Rutas::iterator Almacen_Rutas::begin(){
+    iterator it;
+    it.p=rutas.begin();
     return it;
 }
-const iterator begin() const{
-    iterator it=rutas.begin();
+Almacen_Rutas::const_iterator Almacen_Rutas::begin() const{
+    const_iterator it;
+    it.p=rutas.begin();
     return it;
 }
-iterator end(){
-    iterator it=rutas.end();
+Almacen_Rutas::iterator Almacen_Rutas::end(){
+    iterator it;
+    it.p=rutas.end();
     return it;
 }
-const iterator end() const{
-    iterator it=rutas.end();
+Almacen_Rutas::const_iterator Almacen_Rutas::end() const{
+    const_iterator it;
+    it.p=rutas.end();
     return it;
 }
 
-bool save(const char* nombre){
+
+
+bool Almacen_Rutas::iterator::operator!=(const iterator &i){
+    return this->p != i.p;
+}
+
+pair<const string, Ruta>& Almacen_Rutas::iterator::operator*(){
+    return *p;
+}
+
+void Almacen_Rutas::iterator::operator++(){
+    ++p;
+}
+
+bool Almacen_Rutas::save(const char* nombre){
     ofstream outfile(nombre);
     if(!outfile.is_open()){
         cerr << "Couldn't open the file to save the routes"<<endl;
@@ -43,7 +60,7 @@ bool save(const char* nombre){
     outfile.close();
     return true;
 }
-bool load(const char* nombre){
+bool Almacen_Rutas::load(const char* nombre){
     ifstream infile(nombre);
     string magicstring;
     if(!infile.is_open()){
@@ -68,6 +85,6 @@ istream& operator>> (istream& is, Almacen_Rutas & AR){
 }
 ostream& operator<< (ostream& os, Almacen_Rutas & AR){
     for(auto it=AR.begin(); it != AR.end(); ++it)
-        os << it->second;
+        os << (*it).second;
     return os;
 }

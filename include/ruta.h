@@ -103,6 +103,9 @@ class Ruta{
     public:
       friend class Ruta;
       friend class const_iterator;
+      bool operator!=(const iterator& i);
+      Punto& operator*();
+      void operator++();
    };
 
    /**
@@ -112,10 +115,12 @@ class Ruta{
     */
    class const_iterator{
     private:
-      list<Punto>::cons_iterator p;
+      list<Punto>::const_iterator p;
     public: 
       friend class Ruta;
-
+      bool operator!=(const const_iterator& i) const;
+      const Punto& operator*() const;
+      void operator++();
    };
 
    /**
@@ -165,7 +170,7 @@ class Ruta{
     * @return os
     */
    friend ostream & operator <<(ostream & os, const Ruta & R);
-}
+};
 
 #endif
  

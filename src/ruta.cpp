@@ -1,19 +1,43 @@
+#include "ruta.h"
+
+bool Ruta::iterator::operator!=(const iterator& i){
+    return this->p != i.p;
+}
+
+Punto& Ruta::iterator::operator*(){
+    return *p;
+}
+
+void Ruta::iterator::operator++(){
+	++p;
+}
+
+bool Ruta::const_iterator::operator!=(const const_iterator& i) const{
+    return this->p != i.p;
+}
+const Punto& Ruta::const_iterator::operator*() const{
+    return *p;
+}
+void Ruta::const_iterator::operator++(){
+    ++p;
+}
+
 Ruta::Ruta(){}
 
 void Ruta::Insertar(const Punto & n){
-    uta::iterator it = this->puntos.begin() ;
+    Ruta::iterator it = this->begin() ;
     
-    while( (*it) < n && it != this->puntos.end() ){
+    while( (*it) < n && it != this->end() ){
         ++it;
     }
-    it = puntos.insert( it, n );
+    puntos.insert( it.p, n );
 }
 
 void Ruta::Borrar(const Punto & n){
     Ruta::iterator it;
-    for(it=this->puntos.begin(); it != this->puntos.end(); ++it ){
+    for(it=this->begin(); it != this->end(); ++it ){
         if( n== (*it) ){
-            it = puntos.erase( it );
+            puntos.erase( it.p );
         }
     }
 }
@@ -31,56 +55,59 @@ int Ruta::GetNPuntos()const{
 }
 
 bool Ruta::operator==(const Ruta &R)const{
-    Ruta::iterator it1;
-    Ruta::iterator it2
+    Ruta::const_iterator it1;
+    Ruta::const_iterator it2;
     bool iguales = true;
 
     //Si el mismo numero de puntos, los mismos puntos, y estos siguen el mismo orden,
     //entonces la ruta es igual
     if( R.GetNPuntos() == this->GetNPuntos() ){
-        for(it1 = this->puntos.begin(), it2 = R.puntos.begin(); it1 != this->end() && iguales; ++it1, ++it2){
+        for(it1 = this->begin(), it2 = R.begin(); it1 != this->end() && iguales; ++it1, ++it2){
             iguales = (*it1) == (*it2);
         }
     }
 }
 
-bool operator<(const Ruta &R)const{
+bool Ruta::operator<(const Ruta &R)const{
     //Seguiremos el criterio de la ruta más corta
     double r1 = 0.0;
     double r2 = 0.0;
 
-    for( Ruta::iterator it = this->begin(); it != this->end() - 1; ++it ){
-        Ruta::iterator sig = next(it);
-        r1 += (*it).Distancia(*sig);
+    Ruta::const_iterator it = this->begin();
+    Ruta::const_iterator ant;
+    ++it;
+    for(ant.p = prev(it.p); it != this->end(); ++it, ++ant ){
+        r1 += (*it).Distancia(*ant);
     }
 
-    for( Ruta::iterator it = R.begin(); it != R.end() - 1; ++it ){
-        Ruta::iterator sig = next(it);
-        r2 += (*it).Distancia(*sig);
+    it=R.begin();
+    ++it;
+    for(ant.p = prev(it.p); it != R.end(); ++it, ++ant ){
+        r2 += (*it).Distancia(*ant);
     }
 
     return r1 < r2;
 }
 
-iterator Ruta::begin(){
+Ruta::iterator Ruta::begin(){
     iterator it;
     it.p = puntos.begin();
     return it;
 }
 
-const_iterator Ruta::begin(){
+Ruta::const_iterator Ruta::begin()const{
     const_iterator it;
     it.p = puntos.begin();
     return it;
 }
 
-iterator Ruta::end(){
+Ruta::iterator Ruta::end(){
     iterator it;
     it.p = puntos.end();
     return it;
 }
 
-const_iterator Ruta::end(){
+Ruta::const_iterator Ruta::end() const{
     const_iterator it;
     it.p = puntos.end();
     return it;
