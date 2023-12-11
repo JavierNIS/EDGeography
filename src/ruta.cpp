@@ -1,5 +1,7 @@
 #include "ruta.h"
 
+//-----------Funciones iterador de ruta------------------
+
 bool Ruta::iterator::operator!=(const iterator& i){
     return this->p != i.p;
 }
@@ -22,6 +24,7 @@ void Ruta::const_iterator::operator++(){
     ++p;
 }
 
+//------------------Funciones de ruta--------------------
 Ruta::Ruta(){}
 
 void Ruta::Insertar(const Punto & n){
