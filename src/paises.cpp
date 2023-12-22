@@ -120,9 +120,11 @@ istream & operator>>(istream & is, Paises & R){
 	}	
 	
 	Pais P;
+	
 	while (is>>P){
 		rlocal.Insertar(P);
 	}
+	
 	R=rlocal;
 	return is;
 }

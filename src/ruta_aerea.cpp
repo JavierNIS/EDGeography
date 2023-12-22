@@ -61,7 +61,7 @@ int main(int argc , char *argv[]){
     cout << "Inserte la ruta que desea imprimir en la imagen: ";
     cin >> bufferc >> bufferint;
 
-    while(bufferc != 'R' || bufferint >= almacen.getNRutas()){
+    while(bufferc != 'R' || bufferint >= almacen.getNRutas()+1){
         cout << "Formato de ruta incorrecto, vuelva a intentarlo: ";
         cin >> bufferc >> bufferint;
     }

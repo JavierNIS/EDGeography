@@ -299,25 +299,27 @@ Imagen Rota(const Imagen & Io,double angulo){
     Imagen Iout(newimgrows,newimgcols);
     for(int rows=0;rows<newimgrows;rows++)
       {
-	for(int cols=0;cols<newimgcols;cols++)
-	{
-	   float oldrowcos=((float)rows+new_row_min)*cos(-rads);
-	   float oldrowsin=((float)rows+new_row_min)*sin(-rads);
-	   float oldcolcos=((float)cols+new_col_min)*cos(-rads);
-	   float oldcolsin=((float)cols+new_col_min)*sin(-rads);
-	   float old_row=oldrowcos+oldcolsin;
-	   float old_col=-oldrowsin+oldcolcos;
-	   old_row=ceil((double)old_row);
-	   old_col=ceil((double)old_col);
-	   if((old_row>=0)&&(old_row<Io.num_filas())&&
-	      (old_col>=0)&&(old_col<Io.num_cols()))
-	   {
-	      Iout(rows,cols)=Io(old_row,old_col);
-              
-	   }
-	   else
-	     Iout(rows,cols).r=Iout(rows,cols).g=Iout(rows,cols).b=255;
-	}
+        for(int cols=0;cols<newimgcols;cols++)
+        {
+            float oldrowcos=((float)rows+new_row_min)*cos(-rads);
+            float oldrowsin=((float)rows+new_row_min)*sin(-rads);
+            float oldcolcos=((float)cols+new_col_min)*cos(-rads);
+            float oldcolsin=((float)cols+new_col_min)*sin(-rads);
+            float old_row=oldrowcos+oldcolsin;
+            float old_col=-oldrowsin+oldcolcos;
+            old_row=ceil((double)old_row);
+            old_col=ceil((double)old_col);
+            if((old_row>=0)&&(old_row<Io.num_filas())&&
+                (old_col>=0)&&(old_col<Io.num_cols()))
+            {
+                Iout(rows,cols)=Io(old_row,old_col);
+                    
+            }
+            else{
+                Iout(rows,cols).r=Iout(rows,cols).g=Iout(rows,cols).b=255;
+                Iout(rows,cols).transparencia= 0;
+            }
+        }
     }
     return Iout;
 	  
@@ -349,11 +351,11 @@ void Pintar( int f1,int f2,int c1,int c2,Imagen &I, const Imagen &avion,int mind
         angulo = atan2((f2-fila),(c2-col));
         Irota=Rota(avion,angulo);
 	
-	    I.PutImagen(f2,c2,Irota, BLENDING);//pensar si debe ser opaco o blending
+	    I.PutImagen(f2,c2,Irota, OPACO);//pensar si debe ser opaco o blending
 	    angulo = atan2((fila-f1),(col-c1));
 	    Irota=Rota(avion,angulo);
 	
-	    I.PutImagen(f1,c1,Irota, BLENDING);//pensar si debe ser opaco o blending
+	    I.PutImagen(f1,c1,Irota, OPACO);//pensar si debe ser opaco o blending
 	 
       
     }
