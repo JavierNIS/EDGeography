@@ -1,3 +1,8 @@
+/**
+  * @file punto.cpp
+  * @brief Fichero con definiciones de la clase Punto
+  *
+  */
 #include "punto.h"
 
 using namespace std;

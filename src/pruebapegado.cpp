@@ -1,3 +1,9 @@
+/**
+  * @file pruebapegado.cpp
+  * @brief Fichero que contiene un programa pequeño para comprobar el pegado de imágenes
+  *
+  */
+
 #include "imagen.h"
 #include <iostream>
 #include <cstdlib>

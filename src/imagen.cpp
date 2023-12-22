@@ -1,3 +1,8 @@
+/**
+  * @file imagen.cpp
+  * @brief Fichero con definiciones de la clase Imagen
+  *
+  */
 #include "imagen.h"
 
 using namespace std;

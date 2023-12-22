@@ -1,3 +1,9 @@
+/**
+  * @file pais.cpp
+  * @brief Fichero con definiciones de la clase Pais
+  *
+  */
+
 #include "pais.h"
 
 using namespace std;

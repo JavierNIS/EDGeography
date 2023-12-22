@@ -1,9 +1,9 @@
 /**
- * @file Punto.h
- * @brief Fichero cabecera de la clase Punto
- *
- * Permite la gestión de los objetos Punto
- */
+  * @file punto.h
+  * @brief Fichero cabecera de la clase Punto
+  *
+  * Permite la gestión de los objetos Punto
+  */
 
 #ifndef __PUNTO_H
 #define __PUNTO_H
@@ -14,7 +14,7 @@
 
 using namespace std;
 /**
-  * @brief Clase punto
+  * @brief Clase Punto
   * 
   * Permite almacenar y gestionar objetos de tipo punto
   *
@@ -27,12 +27,12 @@ class Punto{
 
   public:
     /**
-     * @brief Constructor por defecto de la clase punto
+     * @brief Constructor por defecto de la clase Punto
      */
     Punto();
 
     /**
-     * @brief Constructor por parámetros de la clase punto
+     * @brief Constructor por parámetros de la clase Punto
      *
      * @param la Latitud del punto
      * @param lo Longitud del punto
@@ -78,7 +78,7 @@ class Punto{
      double Distancia( const Punto &p) const;
 
     /**
-     * @brief operador "menor que" de la clase punto
+     * @brief operador "menor que" de la clase Punto
      * 
      * @param p punto con el que comparar
      *
@@ -87,7 +87,7 @@ class Punto{
     bool operator < (const Punto & p) const;
 
     /**
-     * @brief operador igual de la clase punto
+     * @brief operador igual de la clase Punto
      * 
      * @param p punto con el que comparar
      *
@@ -96,9 +96,9 @@ class Punto{
     bool operator == (const Punto & p ) const;
 
     /**
-     * @brief operador de extraccion de flujo la clase punto
+     * @brief operador de extraccion de flujo la clase Punto
      * 
-     * Recoge los datos necesarios para construir un objeto de la clase punto
+     * Recoge los datos necesarios para construir un objeto de la clase Punto
      * @param is Flujo de entrada
      * @param p punto que almacenar
      *
@@ -107,7 +107,7 @@ class Punto{
     friend istream & operator >> (istream & is, Punto &p);
 
     /**
-     * @brief operador de inserccion de flujo de la clase punto
+     * @brief operador de inserccion de flujo de la clase Punto
      * 
      * Muestra por pantalla el objeto punto
      * @param os Flujo de salida

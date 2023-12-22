@@ -1,3 +1,9 @@
+/**
+  * @file ruta.cpp
+  * @brief Fichero con definiciones de la clase Ruta
+  *
+  */
+
 #include "ruta.h"
 
 //-----------Funciones iterador de ruta------------------

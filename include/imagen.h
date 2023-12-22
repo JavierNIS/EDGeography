@@ -1,6 +1,6 @@
 /**
-  * @file Imagen.h
-  * @brief Fichero de cabecera de la clase imagen
+  * @file imagen.h
+  * @brief Fichero de cabecera de la clase Imagen
   *
   * Permite el almacenamiento y gestion de una imagen 
   */
@@ -27,7 +27,7 @@ unsigned char transparencia;
 };
 
 /**
- * @brief Clase imagen
+ * @brief Clase Imagen
  *
  * Permite almacenar y gestionar objetos de tipo imagen
  *
@@ -74,7 +74,7 @@ class Imagen{
    Imagen();
 
    /**
-    * @brief Constructor por parametros de la clase imagen
+    * @brief Constructor por parametros de la clase Imagen
     *
     * @param f Numero de filas de la imagen
     * @param c Numero de columnas de la imagen
@@ -82,7 +82,7 @@ class Imagen{
    Imagen (int f,int c); 
 
    /**
-    * @brief Constructor de copia de la clase imagen
+    * @brief Constructor de copia de la clase Imagen
     *
     * @param I Imagen a partir de la cual construimos el objeto
     */
@@ -100,7 +100,7 @@ class Imagen{
    ~Imagen();
     
    /**
-    * @brief operador () de la clase imagen
+    * @brief operador () de la clase Imagen
     * 
     * Devuelve una referencia al pixel de la posicion i, j
     *
@@ -110,7 +110,7 @@ class Imagen{
    Pixel & operator()(int i,int j); 
 
    /**
-    * @brief operador () de la clase imagen
+    * @brief operador () de la clase Imagen
     * 
     * Devuelve una referencia constante al pixel de la posicion i, j 
     *
@@ -122,7 +122,7 @@ class Imagen{
    /**
     * @brief Escribe en disco una imagen
     * 
-    * @param nombre Puntero apuntando a la imagen
+    * @param nombre Puntero apuntando a la Ismagen
     */    
    void EscribirImagen(const char * nombre);
 

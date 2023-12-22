@@ -1,6 +1,6 @@
 /**
  * @file Almacen_Rutas.h
- * @brief Fichero de cabecera de la clase almacen rutas
+ * @brief Fichero de cabecera de la clase Almacen_Rutas
  *
  * Permite el almacenamiento y la gestión de objetos de tipo ruta
  */
@@ -15,7 +15,7 @@
 using namespace std;
 
 /**
- * @brief Clase almacen rutas. Esta clase se encarga de almacenar y manejar varias rutas.
+ * @brief Clase Almacen_Rutas. Esta clase se encarga de almacenar y manejar varias rutas.
  * 
  * @param rutas Un diccionario de claves string y rutas
  */
@@ -25,7 +25,7 @@ class Almacen_Rutas{
 
 public:
     /**
-    * @brief Constructor por defecto de la clase almacen ruta
+    * @brief Constructor por defecto de la clase Almacen_Rutas
     */
     Almacen_Rutas();
 
@@ -59,7 +59,7 @@ public:
     Ruta GetRuta(const string& a);
 
     /**
-    * @brief Clase iterator de la clase almacen ruta
+    * @brief Clase iterator de la clase Almacen_Rutas
     * 
     * @param p Iterador de un diccionario de claves string y rutas
     */
@@ -74,7 +74,7 @@ public:
     };
     
     /**
-    * @brief Clase const_iterator de la clase almacen ruta
+    * @brief Clase const_iterator de la clase Almacen_Rutas
     * 
     * @param p Iterador constante de un diccionario de claves string y rutas
     */
@@ -86,7 +86,7 @@ public:
     };
 
     /**
-     * @brief Función begin de la clase almacen rutas
+     * @brief Función begin de la clase Almacen_Rutas
      * 
      * Indica el primer elemento del diccionario
      * 
@@ -95,7 +95,7 @@ public:
     iterator begin();
 
     /**
-     * @brief Función begin de la clase almacen rutas
+     * @brief Función begin de la clase Almacen_Rutas
      * 
      * Indica el primer elemento del diccionario
      * 
@@ -104,7 +104,7 @@ public:
     const_iterator begin() const;
 
     /**
-     * @brief Función end de la clase almacen rutas
+     * @brief Función end de la clase Almacen_Rutas
      * 
      * Indica el final del diccionario
      * 
@@ -113,7 +113,7 @@ public:
     iterator end();
 
     /**
-     * @brief Función end de la clase almacen rutas
+     * @brief Función end de la clase Almacen_Rutas
      * 
      * Indica el final del diccionario
      * 
@@ -140,7 +140,7 @@ public:
     bool load(const char* nombre);
 
     /**
-    * @brief operador de extracción de flujo de la clase almacen rutas
+    * @brief operador de extracción de flujo de la clase Almacen_Rutas
     *
     * @param is Flujo de donde extraer los datos
     * @param AR almacen rutas donde se guardarán los datos
@@ -150,7 +150,7 @@ public:
     friend istream& operator>> (istream& is, Almacen_Rutas & AR);
 
     /**
-    * @brief operador de insercción de flujo de la clase almacen rutas
+    * @brief operador de insercción de flujo de la clase Almacen_Rutas
     *
     * @param os Flujo donde se introducirán los datos
     * @param AR almacen rutas de donde se extraerán los datos

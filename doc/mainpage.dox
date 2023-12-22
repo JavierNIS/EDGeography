@@ -1,25 +1,6 @@
 /*! \mainpage 
 
-@image html main.png "Rutas de Aviones"
-
-# Información sobre Doxygen
-Doxygen admite el uso de la [sintaxis de Markdown (Consulta aquí los comandos básicos)](https://www.markdownguide.org/basic-syntax).
-
-Así como el uso de  <a href="https://htmlcheatsheet.com/">sintaxis <strong>HTML</strong></a>. Esto es especialmente útil
-para aquellos aspectos que Markdown no permite modificar, como el <span  style="color:red">color</span>. Aunque es buena idea evitarlo en la medida de lo posible, por dos
-motivos:
-
-1. <span style="font-size:1.1em">Hace el código <strong>poco</strong> <span style="  background-image: linear-gradient(to left, #4285f4, #34a853, #fbbc05, #ea4335); -webkit-background-clip: text; color: transparent;"> <strong> LEGIBLE </strong> </span></span>
-2. La idea detrás de Markdown es separar _aspecto_ y _contenido_. Y es una __gran idea__.
-
-La forma más correcta de modificar el aspecto debería ser mediante un documento ``.css`` configurado en el archivo ``Doxyfile.in``.
-Si te interesa, puedes echarle un vistazo a la [documentación](https://www.doxygen.nl/manual/customize.html) o a
-temas customizados como [este](https://jothepro.github.io/doxygen-awesome-css/). Aunque el tema por defecto nos parece
-perfecto, _CLÁSICO_. Así puedes centrarte en el contenido.
-
-Por último, lo hemos visto en clase y hay suficientes ejemplos en el código fuente proporcionado, pero puedes consultar la
-mayor parte de la sintaxis de Doxygen para comentar código en su
-[documentación](https://www.doxygen.nl/manual/docblocks.html).
+@image html main.png "Practica final: Rutas de Aviones"
 
 # Autores
 
@@ -28,12 +9,58 @@ mayor parte de la sintaxis de Doxygen para comentar código en su
 
 # Introducción
 
-A continuación se explica el programa creado rutas_aeraeas creado para la practica final sobre pintar Rutas Aéreas en un mapa, explicado y con ejemplos de su funcionamiento
+A continuación se explica el programa creado ruta_aerea creado para la practica final sobre pintar Rutas Aéreas en un mapa, explicado y con ejemplos de su funcionamiento.
 
-# Ejecutables:
+Para este progrma se han utilizado diversas clases:
 
-## Rutas_Aereas
+#Ejecutables: Ruta_Aerea:
 
+#Resumen:
+Este programa se encarga de dibujar una ruta seguida por un avión en un mapa.
+
+Los parámetros necesarios para su funcionamiento son siete, a continuación le mostramos como debe de llamarlo:
+
+> __ruta_aerea__ \<FicheroPaises\> \<ImagenMapa\> \<DirectorioBanderas\> \<FicheroRutas\> \<ImagenAvion\> \<MascaraAvion\>
+
+@param "<FicheroPaises>" Este parámetro debe de ser el nombre de un fichero que contenga los países con sus respectivos nombres, banderas y el punto en el que se encuentran en el mapa.
+
+@param "<ImagenMapa>" Este parámetro debe de ser el nombre del fichero que contenga la imagen del mapa
+
+@param "<DirectorioBanderas>" Este parámetro debe de contener la ruta donde se encuentran las banderas de los paises
+
+@param "<FicheroRutas>" Este parámetro debe de ser el nombre del archivo donde se almacenan las diferentes rutas
+
+@param "<ImagenAvion>" Este parámetro debe de ser el nombre del fichero que contenga la imagen del avion que desea pintar en el mapa
+
+@param "<MascaraAvion>" Este parámetro debe de ser el nombre del fichero que contenga la imagen de la mascara del avion, que indica que pixeles se deben de coger a la hora de pegar la imagen del avion
+
+# Ejemplo de ejecución:
+
+A continuación, le mostraremos un ejemplo de ejecución del programa. La llamada que utilizaremos será:
+
+./ruta_aerea datos/paises.txt  datos/imagenes/mapas/mapa1.ppm datos/imagenes/banderas/ datos/almacen_rutas.txt datos/imagenes/aviones/avion1.ppm datos/imagenes/aviones/mascara_avion1.pgm
+
+## Aquí tenemos el archivo paises.txt:
+@image html paises.png "paises.txt"
+
+## Aquí tenemos el mapa:
+@image html mapa.png "mapa1.ppm"
+
+## Aquí tenemos el contenido del directorio banderas:
+@image html directorio.png "/datos/imagenes/banderas"
+
+## Aquí tenemos el archivo almacen_rutas.txt
+@image html almacen.png "almacen_rutas.txt"
+
+## Aquí tenemos la imagen avion1.ppm y su mascara
+@image html avion.png "avion1.ppm y mascara_avion1.ppm"
+
+## El programa nos pedirá el nombre de una ruta, nosotros introduciremos R5, y a continuación podemos ver que el programa termina:
+@image html fin.png ""
+
+## El resultado de la ejecución del programa es la siguiente:
+@image html resultado.png "salida del programa"
+*/
 
 
 

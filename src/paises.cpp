@@ -1,3 +1,8 @@
+/**
+  * @file paises.cpp
+  * @brief Fichero con definiciones de la clase Paises
+  *
+  */
 #include "paises.h"
 
 Paises::Paises(){}

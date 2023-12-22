@@ -29,14 +29,14 @@ class Paises{
   public:
 
 	/**
-	 * @brief Constructor por defecto de la clase paises
+	 * @brief Constructor por defecto de la clase Paises
 	 */
 	Paises();
 
 	/**
 	 * @brief Funcion Insertar de la clase Paises
 	 *
-	 * Permite insertar el pais P en nuestro conjunto de paises
+	 * Permite insertar el pais P en nuestro conjunto de Paises
 	 * 
 	 * @param P Pais para insertar
 	 */
@@ -45,7 +45,7 @@ class Paises{
 	/**
 	 * @brief Funcion Borrar de la clase Paises
 	 *
-	 * Permite borrar el pais P de nuestro conjunto de paises
+	 * Permite borrar el pais P de nuestro conjunto de Paises
 	 * 
 	 * @param P Pais para borrar
 	 */
@@ -86,7 +86,7 @@ class Paises{
 	};
 
 	/**
-	 * @brief Funcion begin de la clase paises
+	 * @brief Funcion begin de la clase Paises
 	 *
 	 * Devuelve un iterador que apunta al primer elemento del conjunto de paises
 	 *
@@ -95,7 +95,7 @@ class Paises{
 	iterator begin();
 
 	/**
-	 * @brief Funcion begin de la clase paises
+	 * @brief Funcion begin de la clase Paises
 	 *
 	 * Devuelve un iterador constante que apunta al primer elemento del conjunto de paises
 	 *
@@ -104,7 +104,7 @@ class Paises{
 	const_iterator begin()const;
 
 	/**
-	 * @brief Funcion end de la clase paises
+	 * @brief Funcion end de la clase Paises
 	 *
 	 * Devuelve un iterador que apunta al último elemento del conjunto de paises
 	 *
@@ -113,7 +113,7 @@ class Paises{
 	iterator end();
 
 	/**
-	 * @brief Funcion end de la clase paises
+	 * @brief Funcion end de la clase Paises
 	 *
 	 * Devuelve un iterador constante que apunta al último elemento del conjunto de paises
 	 *
@@ -122,7 +122,7 @@ class Paises{
 	const_iterator end()const;
 	
 	/**
-	 * @brief Funcion find de la clase paises
+	 * @brief Funcion find de la clase Paises
 	 *
 	 * Devuelve un iterador apuntando al pais buscado
 	 * 
@@ -131,7 +131,7 @@ class Paises{
 	iterator find(const Pais &p);
 
 	/**
-	 * @brief Funcion find de la clase paises
+	 * @brief Funcion find de la clase Paises
 	 *
 	 * Devuelve un iterador apuntando al pais buscado
 	 * 
@@ -158,7 +158,7 @@ class Paises{
     bool load(const char* nombre);
 
 	/**
-     * @brief operador de extraccion de flujo de la clase paises
+     * @brief operador de extraccion de flujo de la clase Paises
      * 
      * Recoge un conjunto de paises
      *
@@ -170,7 +170,7 @@ class Paises{
 	friend istream & operator>>(istream & is, Paises & R);
 
 	/**
-     * @brief operador de inserccion de flujo de la clase paises
+     * @brief operador de inserccion de flujo de la clase Paises
      * 
      * Muestra por pantalla el objeto Paises (un conjunto de paises)
      *

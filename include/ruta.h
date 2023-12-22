@@ -1,9 +1,9 @@
 /**
- * @file ruta.h
- * @brief Fichero de cabecera de la clase ruta
- *
- * Permite el almacenamiento y la gestión de objetos de tipo ruta
- */
+  * @file ruta.h
+  * @brief Fichero de cabecera de la clase Ruta
+  *
+  * Permite el almacenamiento y la gestión de objetos de tipo ruta
+*/
 
 #ifndef __RUTAS_H
 #define __RUTAS_H
@@ -76,7 +76,7 @@ class Ruta{
    void SetCode(const string & c);
 
    /**
-    * @brief Función GetNPuntos de la clase ruta
+    * @brief Función GetNPuntos de la clase Ruta
     * 
     * @return Devuelve el número de puntos contenidos en la lista puntos
     */
@@ -100,7 +100,7 @@ class Ruta{
    class const_iterator;
 
    /**
-    * @brief Clase iterator de la clase ruta
+    * @brief Clase iterator de la clase Ruta
     * 
     * @param p Iterador de una lista de puntos
     */
@@ -134,28 +134,28 @@ class Ruta{
    };
 
    /**
-    * @brief Función begin de la clase ruta
+    * @brief Función begin de la clase Ruta
     * 
     * @return iterador apuntando al primer elemento de la lista de puntos
     */
    iterator begin();
 
    /**
-    * @brief Función begin de la clase ruta
+    * @brief Función begin de la clase Ruta
     * 
     * @return iterador constante apuntando al primer elemento de la lista de puntos
     */
    const_iterator begin()const;
 
    /**
-    * @brief Función end de la clase ruta 
+    * @brief Función end de la clase Ruta 
     * 
     * @return iterador apuntando al último elemento de la lista de puntos
     */
    iterator end();
 
    /**
-    * @brief Función end de la clase ruta
+    * @brief Función end de la clase Ruta
     * 
     * @return iterador constante apuntando al último elemento de la lista de puntos
     */

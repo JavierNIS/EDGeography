@@ -1,3 +1,9 @@
+/**
+  * @file ruta_aerea.cpp
+  * @brief Fichero que contiene la implementación final del programa de rutas aéreas
+  *
+  */
+
 #include <iostream>
 #include <string>
 
