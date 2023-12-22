@@ -2,6 +2,8 @@
 
 Almacen_Rutas::Almacen_Rutas(){};
 
+const int Almacen_Rutas::getNRutas() const{return rutas.size();}
+
 void Almacen_Rutas::Insertar(const Ruta& R){
     rutas.insert(pair<string, Ruta>(R.GetCode(), R));
 }
@@ -72,7 +74,12 @@ bool Almacen_Rutas::load(const char* nombre){
         cerr << "The file's format couldn't be interpreted" << endl;
         return false;
     }
-    infile >> *this;
+
+    while(!infile.eof()){
+        infile >> *this;
+    }
+    
+    
     infile.close();
     return true;
 }
@@ -80,7 +87,8 @@ bool Almacen_Rutas::load(const char* nombre){
 istream& operator>> (istream& is, Almacen_Rutas & AR){
     Ruta ruta;
     is >> ruta;
-    AR.Insertar(ruta);
+    if(ruta.GetCode() != "")
+        AR.Insertar(ruta);
     return is;
 }
 ostream& operator<< (ostream& os, Almacen_Rutas & AR){

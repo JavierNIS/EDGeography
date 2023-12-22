@@ -2,6 +2,11 @@
 
 //-----------Funciones iterador de ruta------------------
 
+Ruta::const_iterator& Ruta::const_iterator::operator=(const iterator& i){
+    this->p = i.p;
+    return *this;
+}
+
 bool Ruta::iterator::operator!=(const iterator& i){
     return this->p != i.p;
 }
@@ -140,7 +145,6 @@ istream & operator >>(istream & is, Ruta &R){
     is >> cod >> nPuntos; 
 
     R.SetCode(cod);
-
     for(int i=0; i< nPuntos; i++){
         is >> p;
         R.Insertar(p);
@@ -150,7 +154,8 @@ istream & operator >>(istream & is, Ruta &R){
 
 ostream & operator <<(ostream & os, const Ruta & R){
     
-    os << R.GetCode();
+    os << "\t" << R.GetCode() << "\t";
+    os << R.GetNPuntos() << "\t";
 
     Ruta::const_iterator it;
     for( it=R.begin(); it != R.end(); ++it){

@@ -66,6 +66,7 @@ class Paises{
 		friend class const_iterator;
 		void operator++();
 		bool operator!=(const iterator& i);
+		bool operator==(const iterator& i);
 		const Pais& operator*();
 	}; 
 

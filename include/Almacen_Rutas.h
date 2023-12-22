@@ -10,6 +10,7 @@
 #include "ruta.h"
 #include <map>
 #include <fstream>
+#include <cassert>
 
 using namespace std;
 
@@ -28,6 +29,7 @@ public:
     */
     Almacen_Rutas();
 
+    const int getNRutas() const;
 
     /**
     * @brief Inserta una ruta en el almacen de rutas

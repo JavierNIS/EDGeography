@@ -46,15 +46,16 @@ bool Punto::operator == (const Punto & p )const{
 }
 
 istream & operator >> (istream & is, Punto &p){
-    double input;
-    is>> input;
-    p.SetLatitud(input);
-    is >> input;
-    p.SetLongitud(input);
+    pair<double, double> input;
+    char buffer;
+
+    is>> buffer >> input.first >> buffer >> input.second >> buffer;
+    p.SetLatitud(input.first);
+    p.SetLongitud(input.second);
 	return is;
 }
 
 ostream & operator << (ostream & os, const Punto &p ){
-    os<<"["<<p.GetLatitud()<<" "<<p.GetLongitud()<<"]";
+    os<<"("<<p.GetLatitud()<<","<<p.GetLongitud()<<")";
 	return os;
 }

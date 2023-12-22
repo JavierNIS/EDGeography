@@ -69,6 +69,10 @@ const Pais& Paises::const_iterator::operator*(){
 	return *p;
 }
 
+bool Paises::iterator::operator==(const iterator& i){
+	return !(*this != i);
+}
+
 bool Paises::save(const char* nombre){
 	ofstream fichero(nombre);
 	bool hecho = false;
@@ -91,7 +95,7 @@ bool Paises::save(const char* nombre){
 
 bool Paises::load(const char* nombre){
 	ifstream fichero(nombre);
-	bool hecho = false;
+	bool hecho = true;
 
 	if ( !fichero.is_open()){
 		cout<<"No se pudo abrir el archivo"<<endl;

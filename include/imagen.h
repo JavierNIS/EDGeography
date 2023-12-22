@@ -10,6 +10,7 @@
 #include <imagenES.h>
 #include <iostream>
 #include <cassert>
+#include <cmath>
 
 enum Tipo_Pegado {OPACO, BLENDING};
 /**
@@ -161,5 +162,10 @@ class Imagen{
     * @brief 
     */
    Imagen ExtraeImagen(int posi,int posj,int dimi,int dimj);
+
 };
+Imagen Rota(const Imagen & Io,double angulo);
+
+void Pintar( int f1,int f2,int c1,int c2,Imagen &I, const Imagen &avion,int mindisf,int mindisc);
+
 #endif

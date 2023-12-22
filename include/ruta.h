@@ -130,6 +130,7 @@ class Ruta{
       bool operator!=(const iterator& i) const;
       const Punto& operator*() const;
       void operator++();
+      const_iterator& operator=(const iterator& i);
    };
 
    /**
