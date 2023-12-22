@@ -1,9 +1,9 @@
 /**
- * @file Imagen.h
- * @brief Fichero de cabecera de la clase imagen
- *
- * Permite el almacenamiento y gestion de una imagen 
- */
+  * @file Imagen.h
+  * @brief Fichero de cabecera de la clase imagen
+  *
+  * Permite el almacenamiento y gestion de una imagen 
+  */
 
 #ifndef __IMAGEN_H
 #define __IMAGEN_H
@@ -14,13 +14,13 @@
 
 enum Tipo_Pegado {OPACO, BLENDING};
 /**
- * @brief struct que almacena los valores de un pixel
- *
- * @param r Valor entre 0 y 255 que muestra el valor de la componente roja
- * @param g Valor entre 0 y 255 que muestra el valor de la componente verde
- * @param b Valor entre 0 y 255 que muestra el valor de la componente azul
- * @param transparencia 0 si es transparente 255 si no
- */
+  * @brief struct que almacena los valores de un pixel
+  *
+  * @param r Valor entre 0 y 255 que muestra el valor de la componente roja
+  * @param g Valor entre 0 y 255 que muestra el valor de la componente verde
+  * @param b Valor entre 0 y 255 que muestra el valor de la componente azul
+  * @param transparencia 0 si es transparente 255 si no
+  */
 struct Pixel{
 unsigned char r,g,b;
 unsigned char transparencia;
@@ -169,3 +169,4 @@ Imagen Rota(const Imagen & Io,double angulo);
 void Pintar( int f1,int f2,int c1,int c2,Imagen &I, const Imagen &avion,int mindisf,int mindisc);
 
 #endif
+/* Fin Fichero: imagen.h */

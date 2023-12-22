@@ -49,7 +49,9 @@ int main(int argc , char *argv[]){
         cerr << "Error al cargar las rutas" << endl;
         return 1;
     }
+
     mapa.LeerImagen(argv[2]);
+
     avion.LeerImagen(argv[5], argv[6]);
 
     char bufferc;
